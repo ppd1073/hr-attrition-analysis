@@ -49,30 +49,10 @@ Quantifies how missing reviews or overtime affect attrition likelihood.
 
 3️⃣ Feature Engineering
 Converts categorical target:
-
-python
-Copy code
-df['AttritionFlag'] = df['Attrition'].map({'Yes':1, 'No':0})
-One-hot encodes categorical columns:
-
-bash
-Copy code
-['Gender','Department','JobRole','EducationField',
- 'MaritalStatus','BusinessTravel','OverTime','State',' Ethnicity']
-Drops identifiers (e.g., EmployeeID, Name, HireDate) and redundant features.
-
 Splits data into 70/30 stratified train-test sets for balanced modeling.
 
 4️⃣ Modeling
 Implements RandomForestClassifier:
-
-python
-Copy code
-model = RandomForestClassifier(
-    n_estimators=100,
-    class_weight='balanced',
-    random_state=42
-)
 Evaluates on holdout data using:
 
 Accuracy, Precision, Recall, F1-score, ROC-AUC
@@ -80,21 +60,8 @@ Accuracy, Precision, Recall, F1-score, ROC-AUC
 Confusion Matrix and classification report for transparency.
 
 5️⃣ Risk Scoring
-Predicts probability of attrition using:
-
-python
-Copy code
-df['AttritionRiskScore'] = model.predict_proba(X)[:,1]
-Flags high-risk employees:
-
-python
-Copy code
-df['HighRisk'] = df['AttritionRiskScore'] > 0.70
+Predicts the probability of attrition using:
 Builds a ranked risk table with employee identifiers, departments, roles, and scores.
-
-EmployeeID	Department	Role	Risk Score	High Risk
-1073	Sales	Executive	0.83	✅
-1049	HR	Associate	0.66	❌
 
 6️⃣ Risk Interpretation & Visualization
 Visualizes feature importance (top predictive variables).

@@ -110,54 +110,8 @@ Overtime frequency and lower satisfaction correlate strongly with churn.
 
 Long tenure without promotions raises retention concerns.
 
-Random Forest achieved ~84% accuracy, balanced precision/recall, and ROC-AUC ≈ 0.90.
+Random Forest achieved ~84% accuracy, balanced precision/recall, and ROC-AUC ≈ 0.90
 
-📈 Visual Outputs
-Visualization	Description
-Missing performance review analysis
-Department-wise attrition rate
-Top predictive features from Random Forest
-Role-level risk score distribution
-
-(Export these charts from your notebook and save them in /outputs/visuals/.)
-
-📁 Repository Structure
-Copy code
-hr-attrition-analysis/
-├── README.md
-├── notebooks/
-│   └── HR Analytics.ipynb
-├── outputs/
-│   └── visuals/
-├── requirements.txt
-└── .gitignore
-.gitignore
-
-kotlin
-Copy code
-data/*
-*.csv
-*.xlsx
-.ipynb_checkpoints/
-.DS_Store
-▶️ How to Run
-bash
-Copy code
-# 1. Clone repository
-git clone https://github.com/ppd1073/hr-attrition-analysis.git
-cd hr-attrition-analysis
-
-# 2. (optional) Create environment
-python -m venv .venv
-# Activate
-#   Windows: .venv\Scripts\activate
-#   macOS/Linux: source .venv/bin/activate
-
-# 3. Install dependencies
-pip install -r requirements.txt
-
-# 4. Launch Jupyter Notebook
-jupyter notebook notebooks/"HR Analytics.ipynb"
 🧩 Next Steps
 Integrate SHAP explainability for local/global model insights.
 
